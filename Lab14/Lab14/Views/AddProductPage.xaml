@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab14.Views.AddProductPage"
+             xmlns:local="clr-namespace:Lab14.ViewModels">
+    <ContentPage.BindingContext>
+        <local:AddProductViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Spacing="5" Padding="15" >
+            <Label Text="ID" FontSize="Medium" IsEnabled="False" TextColor="Black"></Label>
+            <Entry Text="{Binding Productinfo.ProductId, Mode=TwoWay}" FontSize="Medium"  IsEnabled="false" TextColor="Black"></Entry>
+            <Label Text="Nombre" FontSize="Medium" TextColor="Black" ></Label>
+            <Entry Text="{Binding Productinfo.ProductName,Mode=TwoWay}" FontSize="Medium" TextColor="Black"></Entry>
+            <Label Text="Descripción" FontSize="Medium" TextColor="Black" ></Label>
+            <Editor Text="{Binding Productinfo.Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" TextColor="Black"></Editor>
+            <Label Text="URL de la imagen" FontSize="Medium" TextColor="Black" ></Label>
+
+            <Editor Text="{Binding Productinfo.ImageUrl, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" TextColor="Black"></Editor>
+
+            <StackLayout Orientation="Horizontal" >
+                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
